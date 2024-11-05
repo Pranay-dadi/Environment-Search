@@ -1,28 +1,40 @@
 /* General Styling */
 body {
     font-family: 'Nunito', sans-serif;
-    background-color: #f0f2f5;
+}
+
+#background-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
 }
 
 /* Navigation Bar Styling */
 nav {
     width: 100%;
-    background: #111;
+    
     padding: 10px 0;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
 }
 
 nav a {
     color: #fff;
     text-decoration: none;
     margin: 0 20px;
-    font-size: 1.2em;
+    font-size: 50px;
     transition: color 0.3s;
 }
 
 nav a:hover {
-    color: #ff9800;
+    color: #000000;
+    background-color: white;
 }
 
 /* Main Heading */
@@ -84,7 +96,7 @@ h2 {
 
 /* Weather Header Styling */
 #weather-info h3 {
-    color: #ff9800; /* Accent color for headers */
+    color: #000000; /* Accent color for headers */
     font-size: 1.8em; /* Slightly larger size for headings */
     margin-bottom: 15px; /* Space below the heading */
     text-align: center; /* Center the header */

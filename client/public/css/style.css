@@ -86,6 +86,7 @@
 .container .content .bannerText{
 	position: relative;
 	max-width: 700px;
+	top: -30px;
 }
 .container .content .bannerText div{
 	transition: 0.5s ease-in-out;
@@ -103,9 +104,10 @@
 	font-weight: 700;
 }
 .container .content .bannerText p{
-	color: #fff;
-	font-size: 18px;
+	color: #000000;
+	font-size: 45px;
 	margin: 20px 0;
+	background-color: #ffffff;
 	
 }
 
@@ -369,7 +371,7 @@
 .second
 {
 	/*background: #AED6F1;*/
-	background-image: url("../assets/images/AdobeStock_869072269_Preview.jpeg");
+	background-image: url("../assets/images/airp.jpeg");
 	height: auto;
 	width: auto;
 	background-position: center;
@@ -385,7 +387,7 @@
 }
 .third
 {
-	background-image: url("../assets/images/AdobeStock_832321035_Preview.jpeg");
+	background-image: url("../assets/images/waterp.jpeg");
 	height: auto;
 	width: auto;
 	background-position: center;
@@ -401,7 +403,7 @@
 }
 .fourth
 {
-	background-image: url("../assets/images/AdobeStock_802592755_Preview.jpeg");
+	background-image: url("../assets/images/landp.jpeg");
 	height: auto;
 	width: auto;
 	background-position: center;
