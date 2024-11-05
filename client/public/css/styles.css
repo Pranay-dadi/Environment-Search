@@ -1,0 +1,105 @@
+/* General Styling */
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #f0f2f5;
+}
+
+/* Navigation Bar Styling */
+nav {
+    width: 100%;
+    background: #111;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 1.2em;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ff9800;
+}
+
+/* Main Heading */
+h2 {
+    margin-top: 20px;
+    font-size: 2.5em;
+    color: #333;
+    text-align: center;
+}
+
+/* Map Container */
+#map {
+    width: 80%;
+    height: 400px;
+    margin: 20px auto;
+    border: 2px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Weather Info Styling */
+#weather-info {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff; /* White background for contrast */
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow for depth */
+    border: 1px solid #e0e0e0; /* Subtle border for definition */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+}
+
+
+/* Air Quality Meter Styling */
+#air-quality-meter {
+    width: 100%; /* Full width of the parent */
+    height: 30px; /* Height for the meter */
+    margin: 10px 0; /* Margin for spacing */
+    border-radius: 15px;
+    background: #d3d3d3; /* Default color for the meter */
+    transition: background-color 0.3s; /* Smooth transition for color changes */
+}
+
+/* Weather Details Container */
+#weather-details {
+    width: 100%; /* Full width */
+    text-align: left; /* Align text to the left */
+}
+
+/* Weather Info Text Styling */
+#weather-details p {
+    color: #333; /* Darker text for better readability */
+    font-size: 1.2em; /* Slightly larger font for emphasis */
+    margin-bottom: 15px; /* More space between paragraphs */
+    line-height: 1.5; /* Improved line spacing for readability */
+}
+
+/* Weather Header Styling */
+#weather-info h3 {
+    color: #ff9800; /* Accent color for headers */
+    font-size: 1.8em; /* Slightly larger size for headings */
+    margin-bottom: 15px; /* Space below the heading */
+    text-align: center; /* Center the header */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #map, #weather-info {
+        width: 95%;
+    }
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
+    h2 {
+        font-size: 2em;
+    }
+}

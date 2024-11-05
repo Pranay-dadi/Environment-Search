@@ -81,6 +81,8 @@
 	justify-content: flex-start;
 	align-items: center;
 }
+.text
+
 .container .content .bannerText{
 	position: relative;
 	max-width: 700px;
@@ -90,8 +92,10 @@
 	display: none;
 }
 .container .content .bannerText div.active{
-	display: initial;
+	display: initial; 
+	
 } 
+
 .container .content .bannerText div h2{
 	color: #fff;
 	font-size: 6em;
@@ -102,6 +106,7 @@
 	color: #fff;
 	font-size: 18px;
 	margin: 20px 0;
+	
 }
 
 .controls {

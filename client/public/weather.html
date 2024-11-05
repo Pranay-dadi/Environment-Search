@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Map</title>
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico"/>
+    <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/weather-map">Weather Map</a>
+    </nav>
+    <h2>Select Location on Map</h2>
+    <div id="map"></div>
+    <div id="weather-info">
+        <h3>Environment Information</h3>
+        <div id="air-quality-meter"></div> <!-- Air Quality Meter -->
+        <div id="weather-details"></div> <!-- Weather details will go here -->
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVE5xSUenOWL6Sl2Nq0fRkl0IdgencmaM&callback=initMap" async></script>
+    <script src="weather.js"></script>
+</body>
+</html>
