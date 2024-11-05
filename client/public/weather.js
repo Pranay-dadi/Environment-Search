@@ -41,7 +41,6 @@ function displayWeatherInfo(data) {
         <p>PM 10 level: ${data.list[0].components.pm10}</p>
         <p>NH3 level: ${data.list[0].components.nh3}</p>
     `;
-    
 }
 
 function updateAirQualityMeter(aqi) {
