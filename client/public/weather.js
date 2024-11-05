@@ -29,17 +29,9 @@ async function fetchWeatherData(lat, lon) {
 function displayWeatherInfo(data) {
     const weatherDetailsDiv = document.getElementById('weather-details');
     weatherDetailsDiv.innerHTML = `
-        <p>Latitude: ${data.coord.lat}</p>
-        <p>Longitude: ${data.coord.lon}</p>
-        <p>Air Quality Index: ${data.list[0].main.aqi}</p>
-        <p>CO level: ${data.list[0].components.co}</p>
-        <p>NO level: ${data.list[0].components.no}</p>
-        <p>NO2 level: ${data.list[0].components.no2}°C</p>
-        <p>SO2 level: ${data.list[0].components.so2}%</p>
-        <p>O3 level: ${data.list[0].components.o3}</p>
-        <p>PM 2.5 level: ${data.list[0].components.pm2_5}</p>
-        <p>PM 10 level: ${data.list[0].components.pm10}</p>
-        <p>NH3 level: ${data.list[0].components.nh3}</p>
+        <p>Latitude: ${data.coord.lat} &nbsp;&nbsp;&nbsp; Longitude: ${data.coord.lon} &nbsp;&nbsp;&nbsp; Air Quality Index: ${data.list[0].main.aqi} &nbsp;&nbsp;&nbsp; CO level: ${data.list[0].components.co}</p>
+        <p>NO level: ${data.list[0].components.no} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NO2 level: ${data.list[0].components.no2}°C &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SO2 level: ${data.list[0].components.so2}% &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; O3 level: ${data.list[0].components.o3}</p>
+        <p>PM 2.5 level: ${data.list[0].components.pm2_5} &nbsp;&nbsp;&nbsp;PM 10 level: ${data.list[0].components.pm10} &nbsp;&nbsp;&nbsp;&nbsp;NH3 level: ${data.list[0].components.nh3}</p>
     `;
 }
 

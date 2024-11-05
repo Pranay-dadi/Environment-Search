@@ -89,7 +89,7 @@ h2 {
 /* Weather Info Text Styling */
 #weather-details p {
     color: #333; /* Darker text for better readability */
-    font-size: 1.2em; /* Slightly larger font for emphasis */
+    font-size: 40px; /* Slightly larger font for emphasis */
     margin-bottom: 15px; /* More space between paragraphs */
     line-height: 1.5; /* Improved line spacing for readability */
 }
