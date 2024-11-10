@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pollution Awareness</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #87CEEB;
+        }
+
+        #sky-container {
+            position: relative;
+            width: 1000px;
+            height: 700px;
+            background-image: url('sky.jpg');
+            background-size: cover;
+            overflow: hidden;
+            border: 2px solid #333;
+        }
+
+        .bird {
+            position: absolute;
+            width: 50px;
+            top: 20px;
+            animation: fly 8s linear infinite;
+        }
+
+        /* Flying animation for the birds */
+        @keyframes fly {
+            0% { left: -50px; }
+            100% { left: 1050px; }
+        }
+
+        #putWasteBtn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px 20px;
+            background-color: #ff5555;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .smoke {
+            position: absolute;
+            width: 100%;
+            height: 100%; /* Cover entire sky container */
+            background-image: url('smoke.png');
+            background-size: cover;
+            opacity: 0.5; /* Slightly transparent */
+            animation: smokeMove 5s infinite alternate ease-in-out;
+        }
+
+        /* Animation for smoke movement */
+        @keyframes smokeMove {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(20px); }
+        }
+
+        .airwaste {
+            position: absolute;
+            width: 40px; /* Adjust size as needed */
+            opacity: 0.8;
+            pointer-events: none; /* Prevent interaction with airwaste */
+        }
+
+        /* Falling animation for birds */
+        @keyframes fall {
+            0% {
+                top: 20px;
+            }
+            100% {
+                top: 600px; /* Birds fall down to the bottom */
+                opacity: 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="sky-container">
+    <!-- Button to introduce waste -->
+    <button id="putWasteBtn">Put Waste</button>
+
+    <!-- Birds flying across the sky -->
+    <img src="bird1.png" alt="Bird" class="bird" style="top: 40px; animation-delay: 0s;" id="bird1">
+    <img src="bird2.png" alt="Bird" class="bird" style="top: 80px; animation-delay: 2s;" id="bird2">
+    <img src="bird1.png" alt="Bird" class="bird" style="top: 120px; animation-delay: 4s;" id="bird3">
+</div>
+
+<script>
+    let airWasteCount = 0; // Counter to track number of airwaste added
+    const birds = document.querySelectorAll('.bird');
+    const birdCollisions = [0, 0, 0]; // Track collision counts for each bird
+    const birdTouchPoints = [null, null, null]; // Store the touch points for each bird
+
+    // Function to animate air waste moving like wind
+    function animateAirWaste(airWaste) {
+        const randomDirectionX = Math.random() < 0.5 ? -1 : 1;  // random left or right movement
+        const randomDirectionY = Math.random() < 0.5 ? -1 : 1;  // random up or down movement
+        const randomSpeedX = Math.random() * 3 + 2;  // Random speed in X (between 2 and 5)
+        const randomSpeedY = Math.random() * 2 + 1;  // Random speed in Y (between 1 and 3)
+
+        const startLeft = Math.random() * 900;  // X position within the sky container
+        const startTop = Math.random() * 500;  // Y position within the sky container
+
+        airWaste.style.left = `${startLeft}px`;
+        airWaste.style.top = `${startTop}px`;
+
+        let keyframes = `
+            @keyframes moveWind${airWasteCount} {
+                0% { 
+                    left: ${startLeft}px;
+                    top: ${startTop}px;
+                }
+                100% { 
+                    left: ${startLeft + randomDirectionX * 100}px; /* Random move in X direction */
+                    top: ${startTop + randomDirectionY * 150}px;  /* Random move in Y direction */
+                }
+            }
+        `;
+
+        const styleTag = document.createElement('style');
+        styleTag.innerHTML = keyframes;
+        document.head.appendChild(styleTag);
+
+        airWaste.style.animation = `moveWind${airWasteCount} ${randomSpeedX + randomSpeedY}s linear infinite`;
+    }
+
+    // Function to check for collision with birds
+    function checkCollision(airWaste, bird, birdIndex) {
+        const airWasteRect = airWaste.getBoundingClientRect();
+        const birdRect = bird.getBoundingClientRect();
+
+        if (airWasteRect.left < birdRect.right &&
+            airWasteRect.right > birdRect.left &&
+            airWasteRect.top < birdRect.bottom &&
+            airWasteRect.bottom > birdRect.top) {
+                
+            // Increment collision count for the bird
+            birdCollisions[birdIndex]++;
+            
+            // Store the touch point for the second collision
+            if (birdCollisions[birdIndex] === 1) {
+                birdTouchPoints[birdIndex] = { left: birdRect.left, top: birdRect.top };
+            }
+            
+            // If collision count is 2, make the bird fall from the touch point
+            if (birdCollisions[birdIndex] === 2 && birdTouchPoints[birdIndex]) {
+                const touchPoint = birdTouchPoints[birdIndex];
+                bird.style.animation = 'fall 3s forwards'; // Trigger the fall animation
+                bird.style.left = `${touchPoint.left}px`;
+                bird.style.top = `${touchPoint.top}px`;
+                bird.style.animationDelay = '0s'; // Reset any previous delay
+            }
+        }
+    }
+
+    // Monitor all airwaste elements for collisions with birds
+    function monitorCollisions() {
+        const airWastes = document.querySelectorAll('.airwaste');
+        airWastes.forEach(airWaste => {
+            birds.forEach((bird, index) => {
+                checkCollision(airWaste, bird, index);
+            });
+        });
+    }
+
+    // Add a new airwaste and monitor collisions
+    document.getElementById("putWasteBtn").addEventListener("click", function() {
+        if (airWasteCount < 10) {
+            const airWaste = document.createElement("img");
+            airWaste.src = "airwaste.png";
+            airWaste.classList.add("airwaste");
+
+            document.getElementById("sky-container").appendChild(airWaste);
+            airWasteCount++;
+
+            animateAirWaste(airWaste);
+        } else {
+            if (!document.querySelector(".smoke")) {
+                const centerSmoke = document.createElement("div");
+                centerSmoke.classList.add("smoke");
+
+                const leftSmoke = document.createElement("div");
+                leftSmoke.classList.add("smoke");
+                leftSmoke.style.left = "-50%";
+
+                const rightSmoke = document.createElement("div");
+                rightSmoke.classList.add("smoke");
+                rightSmoke.style.left = "50%";
+
+                const skyContainer = document.getElementById("sky-container");
+                skyContainer.appendChild(centerSmoke);
+                skyContainer.appendChild(leftSmoke);
+                skyContainer.appendChild(rightSmoke);
+            }
+        }
+    });
+
+    // Monitor collisions every 100ms
+    setInterval(monitorCollisions, 100);
+</script>
+
+</body>
+</html>

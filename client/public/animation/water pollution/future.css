@@ -1,0 +1,125 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+}
+
+.container {
+    text-align: center;
+}
+
+#pourButton {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#pourButton:hover {
+    background-color: #005200;
+}
+
+.sea {
+    width: 1000px;
+    height: 600px;
+    background-image: url('sea.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+    transition: background-color 0.5s ease;
+}
+
+.waste {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -50px;
+    width: 80px;
+    height: auto;
+    transition: top 2s;
+}
+
+.fish {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    bottom: 20%; /* Default position */
+    transform: translateY(50%);
+}
+
+/* Fish swim styles */
+.fish-1 {
+    animation: swimRightToLeft 10s linear infinite;
+}
+
+.fish-2 {
+    animation: swimLeftToRight 12s linear infinite;
+}
+
+/* Fish 3 moves in a straight line at a lower position */
+.fish-3 {
+    bottom: 10%; /* Lower position */
+    animation: swimStraight 8s linear infinite;
+}
+
+/* Swim from right to left */
+@keyframes swimRightToLeft {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: -100px; /* Off-screen to the left */
+    }
+}
+
+/* Swim from left to right */
+@keyframes swimLeftToRight {
+    0% {
+        left: -100px; /* Start off-screen to the left */
+    }
+    100% {
+        left: 100%; /* Swim to the right */
+    }
+}
+
+/* Fish 3's straight swim animation */
+@keyframes swimStraight {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: 100%; /* Swim straight across from left to right */
+    }
+}
+
+/* Dead fish remains visible at the bottom after sinking */
+@keyframes drown {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(200px); /* Fish sinks but stays visible */
+        opacity: 1;
+    }
+}
+
+.message {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
