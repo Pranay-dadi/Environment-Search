@@ -37,28 +37,36 @@ function displayWeatherInfo(data) {
 
 function updateAirQualityMeter(aqi) {
     const meter = document.getElementById('air-quality-meter');
-    let color;
+    const status = document.getElementById('air-quality-status');
+    let color, text;
 
-    // Determine the color based on AQI value
+    // Determine the color and text based on AQI value
     switch (aqi) {
         case 1:
             color = '#00e400'; // Good (Green)
+            text = 'Good';
             break;
         case 2:
             color = '#ffff00'; // Moderate (Yellow)
+            text = 'Moderate';
             break;
         case 3:
             color = '#ff7e00'; // Unhealthy for sensitive groups (Orange)
+            text = 'Unhealthy for Sensitive Groups';
             break;
         case 4:
             color = '#ff0000'; // Unhealthy (Red)
+            text = 'Unhealthy';
             break;
         case 5:
             color = '#99004d'; // Very Unhealthy (Purple)
+            text = 'Very Unhealthy';
             break;
         default:
             color = '#d3d3d3'; // Default color for unknown
+            text = 'Unknown';
     }
 
     meter.style.backgroundColor = color; // Change the meter color
+    status.textContent = `Air Quality: ${text}`; // Display air quality status text
 }

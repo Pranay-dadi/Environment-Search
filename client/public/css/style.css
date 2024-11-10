@@ -46,6 +46,7 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: 30px 100px;
+	background-color:gray;
 }
 .container header .logo{
 	font-weight: 700;

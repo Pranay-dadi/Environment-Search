@@ -11,16 +11,22 @@
     <video id="background-video" autoplay loop muted>
         <source src="assets/videos/video.mp4" type="video/mp4">
 
-    </video>
+    </video>		
+    
     <nav>
-        <a href="/">Home</a>
-        <a href="/weather-map">Weather Map</a>
+        <a href="#" class="logo">Environment Search & Pollution</a>
+		
+			<ul>
+				<li><a href="/">Home</a></li>
+                <li><a href="/weather-map">Weather Map</a></li>
+            </ul>
     </nav>
     <h2>Select Location on Map</h2>
     <div id="map"></div>
     <div id="weather-info">
         <h3>Environment Information</h3>
         <div id="air-quality-meter"></div> <!-- Air Quality Meter -->
+        <div id="air-quality-status"></div> <!-- Air Quality Status Text -->
         <div id="weather-details"></div> <!-- Weather details will go here -->
     </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVE5xSUenOWL6Sl2Nq0fRkl0IdgencmaM&callback=initMap" async></script>

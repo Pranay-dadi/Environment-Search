@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+*{
+	font-family: 'Nunito', sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.container{
+	position: relative;
+	padding: 0 100px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	min-height: 0vh;
+}
+
+.container header{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 30px 100px;
+	background-color:gray;
+}
+.container header .logo{
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #fff;
+	font-size: 1.5em;
+	text-decoration: none;
+}
+.container header ul{
+	position: relative;
+	display: flex;
+}
+.container ul li{
+	list-style: none;
+	margin: 0 20px;
+	text-decoration: none;
+}
+.container ul li a{
+	position: relative;
+	text-decoration: none;
+	font-size: 18px;
+	padding: 4px 10px;
+	color: #fff;
+}
+.container header ul li a:hover,
+.container header ul li a.active
+{
+	background: #fff;
+	color: #111;
+}
+
+@media (max-width: 991px)
+{
+	.container 
+	{
+		padding: 20px;
+	}
+	.container::before
+	{
+		width: 100%;
+	}
+	.container header
+	{
+		padding: 10px 20px;
+	}
+
+	.container header ul
+	{
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		background: #fff;
+		z-index: 1000;
+		display: none;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+	.container header.active ul
+	{
+		display: flex;
+	}
+	.container header ul li 
+	{
+		text-align: center;
+		margin: 10px;
+	}
+	.container header ul li a
+	{
+		color: #333;
+		font-size: 1.5em;
+	}
+	.container header ul li a:hover
+	{
+		color: #f00;
+		cursor: pointer;
+	}
+
+}
+
+/*land*/
+.land
+{
+	width: 80%;
+	margin: auto;
+	text-align: center;
+	padding-top: 100px;
+    height: 400%;
+}
+.land h1
+{
+	
+	margin-top: 10%;
+	font-size: 50px;
+	font-weight: 600;
+}
+.land p
+{
+	color: #777;
+	font-size: 20px;
+	font-weight: 300;
+	line-height: 22px;
+	padding: 10px;
+};
+
+.totalland
+{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	width: 100%;
+	gap: 20px;
+	margin-top: 20px;
+}
+.prosland
+{
+	background: #fff3f3;
+	border-radius: 10px;
+	flex-basis: 32%;
+	padding: 20px;
+	box-sizing: border-box;
+	transition: 0.5s;
+	text-align: center;
+}
+.prosland:hover
+{
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+}
+
+.fourth
+{
+	background-image: url("../assets/images/landp.jpeg");
+	height: 100vh;
+	width: 100vw;
+	background-position: center;
+	background-size: cover;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+}
+.fourth h1
+{
+	color: #ffffff;
+
+	;
+}
+.fourth .desc
+{
+	color: #fff;
+}
