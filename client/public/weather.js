@@ -28,12 +28,69 @@ async function fetchWeatherData(lat, lon) {
 
 function displayWeatherInfo(data) {
     const weatherDetailsDiv = document.getElementById('weather-details');
-    weatherDetailsDiv.innerHTML = `
-        <p>Latitude: ${data.coord.lat} &nbsp;&nbsp;&nbsp; Longitude: ${data.coord.lon} &nbsp;&nbsp;&nbsp; Air Quality Index: ${data.list[0].main.aqi} &nbsp;&nbsp;&nbsp; CO level: ${data.list[0].components.co}</p>
-        <p>NO level: ${data.list[0].components.no} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NO2 level: ${data.list[0].components.no2}°C &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SO2 level: ${data.list[0].components.so2}% &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; O3 level: ${data.list[0].components.o3}</p>
-        <p>PM 2.5 level: ${data.list[0].components.pm2_5} &nbsp;&nbsp;&nbsp;PM 10 level: ${data.list[0].components.pm10} &nbsp;&nbsp;&nbsp;&nbsp;NH3 level: ${data.list[0].components.nh3}</p>
+
+    // Create a table to display the weather info
+    const table = `
+        <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th>Attribute</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Latitude</td>
+                    <td>${data.coord.lat}</td>
+                </tr>
+                <tr>
+                    <td>Longitude</td>
+                    <td>${data.coord.lon}</td>
+                </tr>
+                <tr>
+                    <td>Air Quality Index</td>
+                    <td>${data.list[0].main.aqi}</td>
+                </tr>
+                <tr>
+                    <td>CO Level</td>
+                    <td>${data.list[0].components.co}</td>
+                </tr>
+                <tr>
+                    <td>NO Level</td>
+                    <td>${data.list[0].components.no}</td>
+                </tr>
+                <tr>
+                    <td>NO2 Level</td>
+                    <td>${data.list[0].components.no2}</td>
+                </tr>
+                <tr>
+                    <td>SO2 Level</td>
+                    <td>${data.list[0].components.so2}</td>
+                </tr>
+                <tr>
+                    <td>O3 Level</td>
+                    <td>${data.list[0].components.o3}</td>
+                </tr>
+                <tr>
+                    <td>PM 2.5 Level</td>
+                    <td>${data.list[0].components.pm2_5}</td>
+                </tr>
+                <tr>
+                    <td>PM 10 Level</td>
+                    <td>${data.list[0].components.pm10}</td>
+                </tr>
+                <tr>
+                    <td>NH3 Level</td>
+                    <td>${data.list[0].components.nh3}</td>
+                </tr>
+            </tbody>
+        </table>
     `;
+
+    weatherDetailsDiv.innerHTML = table;
 }
+
+
 
 function updateAirQualityMeter(aqi) {
     const meter = document.getElementById('air-quality-meter');

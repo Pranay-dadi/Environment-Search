@@ -148,3 +148,19 @@ h2 {
         font-size: 2em;
     }
 }
+/* Table Header Styling */
+#weather-details th {
+    padding: 12px;
+    border: 1px solid #ddd;
+    background-color: #f4f4f4;
+    font-size: 40px; /* Set header font size to 40px */
+    text-align: center; /* Center-align header text */
+}
+
+/* Table Cell Styling */
+#weather-details td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    font-size: 30px; /* Set font size for attributes and values to 30px */
+    text-align: center; /* Center-align attribute and value text */
+}
